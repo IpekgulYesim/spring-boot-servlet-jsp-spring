@@ -1,0 +1,42 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="user.css">
+    </head>
+    <body>
+        <form id="kullaniciKayit" action="kullaniciDBController" method="get">
+            
+            <input type="text" name="islem" visible="false" id="islem">
+
+            <label for="idKullanici"></label> <input type="text" id="idKullanici"> <br>
+            <label for="Adi"></label> <input type="text" id="ADI"> <br>
+            <label for="Soyadi"></label> <input type="text" id="SOYADI"> <br>
+            <label for="kullaniciAdi"></label> <input type="text" id="kullaniciAdi"> <br>
+            <label for="password"></label> <input type="text" id="password"> <br>
+            <label for="email"></label> <input type="text" id="EMAIL"> <br>
+            
+            <input type="button" value="Güncelle" onclick="beforeSubmitGuncelle()">
+            <input type="button" value="Sil" onclick="beforeSubmitSil()">
+            <input type="button" value="Ekle" onclick="beforeSubmitEkle()">
+            
+        </form>
+
+        <script type="text/javascript">
+            beforeSubmitGuncelle = function() {
+                document.getElementById("islem").value = "Guncelle";
+                document.getElementById("kullaniciKayit").submit();
+            }
+            
+            beforeSubmitSil = function() {
+                document.getElementById("islem").value = "Sil";
+                document.getElementById("kullaniciKayit").submit();
+            }
+            
+            beforeSubmitEkle = function() {
+                document.getElementById("islem").value = "Ekle";
+                document.getElementById("kullaniciKayit").submit();
+            }
+            </script>
+    </body>
+</html>

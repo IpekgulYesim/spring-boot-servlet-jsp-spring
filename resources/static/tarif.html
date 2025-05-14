@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script type="text/javascript">
+        document.getElementById("tarifKayit").addEventListener("load", baslangicAyarlari);
+
+        function baslangicAyarlari() {            
+            document.getElementById("idKullanici").value = sessionStorage.getItem(id);
+            var tarifId = request.tarifId;
+
+            
+        }
+    </script>
+
+   <script>
+        window.alert(request.tarifId);
+   </script> 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="recipe.css">
+    </head>
+    <body>
+        <form id="tarifKayit" action="tarifDBController" method="get">
+            
+            <input type="hidden" name="islem" id="islem">
+		<div>
+            <input type="button" value="Kayıt-Aç" onclick="beforeSubmitEkle()">
+            <input type="button" value="Güncelle" onclick="beforeSubmitGuncelle()" disabled>
+            <input type="button" value="Sil" onclick="beforeSubmitSil()" disabled>
+        </div>
+			
+			<br>
+            <input type="text" id="idKullanici" name="idKullanici" disabled>
+            <label for="idtarif">Tarif ID</label> <input type="text" id="idTarif" name="idTarif" disabled> <br>
+            <label for="Adi">Adı</label><input type="text" id="ADI" name="ADI"> <br>
+            <Label>Yemek Türü</Label>
+<select name="yemekTurleri" id="yemekTurleri">
+  <option value="1">Çorbalar</option>
+  <option value="2">Sulu Yemekler</option>
+  <option value="3">Et Yemekleri</option>
+  <option value="4">Sebze Yemekleri</option>
+  <option value="5">Hamur İşleri</option>
+  <option value="6">Salatalar</option>
+  <option value="7">Aperatifler</option>
+  <option value="8">Tatlılar</option>
+  <option value="9">İçecekler</option>
+</select>
+<br>
+<Label>Malzeme Adı</Label><input type="text" name="MalzemeAd" id="MalzemeAd" disabled>
+<Label>Miktar</Label><input type="text" name="Miktar" id="Miktar" style="width:40" disabled>
+<Label>Birim</Label>
+<select name="birimler" id="birimler" disabled>
+  <option value="Kilogram">Kilogram</option>
+  <option value="Gram">Gram</option>
+  <option value="Litre">Litre</option>
+  <option value="Su Bardağı">Su Bardağı</option>
+  <option value="Çay Bardağı">Çay Bardağı</option>
+  <option value="Kahve Fincanı">Kahve Fincanı</option>
+  <option value="Yemek Kaşığı">Yemek Kaşığı</option>
+  <option value="Tatlı Kaşığı">Tatlı Kaşığı</option>
+  <option value="Çay Kaşığı">Çay Kaşığı</option>
+  <option value="Tutam">Tutam</option>
+  <option value="Adet">Adet</option>
+  <option value="Demet">Demet</option>
+  <option value="Diş">Diş</option>
+  <option value="Baş">Baş</option>
+</select>
+<button type="button" onclick="MalzemeEkle()" disabled>Ekle</button>
+<br>
+
+
+<table>
+	<tr>
+		<td style="vertical-align:top">
+<Label>Malzemeler</Label><br>
+
+<table id="Malzemeler" class="ingredients">
+	<tr>
+		<th>Malzeme Adı</th>
+		<th>Birim</th>
+		<th>Miktar</th>
+		<th></th>
+	</tr>
+</table>
+</td>
+<td style="vertical-align:top">
+<Label>Yapılışı</Label><br>
+<textarea id="yapilis" name="yapilis" rows="25" cols="70" disabled></textarea>
+</td>
+<td style="vertical-align:top">
+<Label>Medya</Label>
+
+</td>
+</tr>
+</table>
+<br>
+<script>
+let satir=1;
+function MalzemeEkle() {
+  var table = document.getElementById("Malzemeler");
+  var row = table.insertRow(satir);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  
+  cell1.innerHTML = MalzemeAd.value;
+  cell2.innerHTML = Miktar.value;
+  cell3.innerHTML = birimler.value;
+  let button = document.createElement('button');
+  button.innerText = 'Sil';
+        
+  button.setAttribute('onclick', 'satirSil()');
+        // Append the button to the last column
+  cell4.appendChild(button);
+  
+  satir=satir+1;
+}
+
+function satirSil() {
+	var td = event.target.parentNode; 
+      var tr = td.parentNode; // the row to be removed
+	  satir = satir -1;
+      tr.parentNode.removeChild(tr);
+}
+</script>
+<br>
+            
+        </form>
+
+        <script type="text/javascript">
+            beforeSubmitGuncelle = function() {
+                document.getElementById("islem").value = "Guncelle";
+                document.getElementById("tarifKayit").submit();
+            }
+            
+            beforeSubmitSil = function() {
+                document.getElementById("islem").value = "Sil";
+                document.getElementById("tarifKayit").submit();
+            }
+            
+            beforeSubmitEkle = function() {
+                document.getElementById("islem").value = "Kaydet";
+                document.getElementById("tarifKayit").submit();
+            }
+            </script>
+    </body>
+</html>

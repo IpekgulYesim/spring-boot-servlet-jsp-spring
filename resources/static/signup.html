@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="form.css">
+    </head>
+    <body>
+        <form action="/signupController" method="get">
+            <div class="form">
+                <h1 class="heading"> Kayıt ol </h1>
+                
+                    <input type="text" placeholder="Ad" autocomplete="off" class="name" name="Adi" id="adi" required>
+                    <input type="text" placeholder="Soyad" autocomplete="off" class="name" name="Soyadi" id="soyadi" required>
+                    <input type="text" placeholder="Kullanıcı Adı" autocomplete="off" class="username" name="KullaniciAdi" id="kullaniciAdi" required>
+                    <input type="email" placeholder="Email" autocomplete="off" class="email" name="email" id="email" required>
+                    <input type="password" placeholder="Şifre" autocomplete="off" class="password" name="password" id="password" required>
+                    <a href="/login.html" class="link"> Hesabın zaten var mı? Giriş yap </a>
+                    <button type="submit" class="submit-btn"> Kaydol</button>
+                
+            </div>
+        </form>
+        
+        <script src="form.js"></script>
+    
+    </body>
+</html>

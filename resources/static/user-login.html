@@ -1,0 +1,68 @@
+<html lang="en">
+
+    <script type='text/javascript'>
+    document.getElementById("userBtn").addEventListener("load", guncelle);
+
+    function guncelle() {
+        document.getElementById("userBtn").value = sessionStorage.getItem("username");
+    }
+    </script>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="home.css">
+    </head>
+    <body onload="guncelle()">
+        <table id="tbl">
+            <tr class="main-items">
+                <td class="logo">Acıktım</td>
+                <td>
+                    <label class="searchbox">
+                        <input type="search" name="arama" placeholder="ara">
+                    </label>
+                </td>
+                <td>
+                    <a href="tarif.html">
+                        <button class="sendRecipe">Tarif Gönder</button>
+                    </a>
+                </td>
+                <td>
+                    <input type="button" id="userBtn"/>
+                    
+                </td>
+                <td>
+                    <form action="/logoutController" class="logoutBtn">
+                        <button class="logoutBtn">Çıkış Yap</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <nav>
+            <h3>Tarif</h3>
+            <ul class="items">
+                <li>
+                    <a href="#">Aperitif</a>
+                </li>
+                <li>
+                    <a href="#">Çorba</a>
+                </li>
+                <li>
+                    <a href="#">Sulu Yemekler</a>
+                </li>
+                <li>
+                    <a href="#">Et Yemekleri</a>
+                </li>
+                <li>
+                    <a href="#">Salatalar</a>
+                </li>
+                <li>
+                    <a href="#">Hamur İşleri</a>
+                </li>
+                <li>
+                    <a href="#">Tatlılar</a>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>
